@@ -1,0 +1,86 @@
+==================================================
+                                                   Question no. 1
+                                                  ============
+
+public class Even {
+       
+	   //EVEN NUMBERS
+	   public static void main(String a[])
+       {
+		   
+    	   int n=Integer.parseInt(a[0]);
+    	   System.out.println("input given in command line "+a[0]);
+    	   System.out.println("even numbers between 1 and "+n);
+    	   for(int i=1; i<=n; i++)
+    	   {
+    		   if(i%2 ==0)
+    		   {
+    			   System.out.print(i+" ");  
+    		   }
+    	   }
+       }
+}
+
+
+output:
+
+input given in command line 30
+even numbers between 1 and 30
+2 4 6 8 10 12 14 16 18 20 22 24 26 28 30
+
+==========================================================
+                                              Question no. 2
+                                            ============
+public class add {
+     public static void main(String args[])
+     {
+    	 int sum = 0;
+    	 int avg = 0;
+    	 for(int i=0; i<args.length; i++)
+    	 {
+    		 System.out.println(i+"number is "+args[i]);
+    	 }
+    	
+    	 for(int i=0; i<args.length; i++)
+    	 {
+    	//	 int n=Integer.parseInt(args[i]);
+    	//	 sum = sum + n;
+    		 sum = sum + Integer.parseInt(args[i]);	 
+    	 }
+    	 avg = (sum/args.length);
+    	 
+    	 System.out.println("sum of numbers is "+sum);
+    	 System.out.println("avg of numbers is "+avg);
+    	 
+    	 for(int i=0; i<args.length; i++)
+    	 {
+    		 int n=Integer.parseInt(args[i]);
+    		 if( n < avg )
+    		 {
+    			 System.out.println(args[i]+"is less than "+avg); 
+    			 
+    		 }
+    	 }
+     }
+}
+
+
+output:
+
+0number is 10
+1number is 20
+2number is 30
+3number is 50
+4number is 40
+sum of numbers is 150
+avg of numbers is 30
+10is less than 30
+20is less than 30
+
+=====================================================
+                                              Question no. 3
+                                            ============
+
+
+
+

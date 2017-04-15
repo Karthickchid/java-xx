@@ -1,0 +1,344 @@
+========================================================
+
+import java.util.Scanner;
+
+public class ScannerDemo 
+{
+	public static void main(String[] args)
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the int number:");
+        int i=sc.nextInt(); 
+        String name=sc.next();
+        float f=sc.nextFloat();
+	}
+
+}
+
+output:
+
+Enter the int number:
+
+====================================================
+
+attribute / data member / instance var
+
+class--->
+   members
+     -data
+     -methods
+            a) constructor
+            b) setter
+            c) getter
+            d) over ridden
+
+
+               =>constructor
+                         1) can be with/without argument
+                         2) construct the obj.
+                         3) initiolise  attributes of class
+                         4) constructor name is class name itself.
+                         5) always public
+
+====================================================
+
+public class Student 
+{
+	//data members
+    private int rollno;
+    private String name;
+    
+    //default constructor
+    public Student()
+    {
+      System.out.println("in student default constructor....");
+    }
+    public Student(int roll,String nm)
+    {
+    	System.out.println("in student para constructor....");
+    	rollno=roll;
+    	name=nm;
+    }
+    int getRollno()
+    {
+    	return rollno;
+    }
+    String getName()
+    {
+    	return name;
+    }
+    public void showStud()
+    {
+    	System.out.println("Roll No:"+rollno+"\nName:"+name);
+    }
+}
+
+-----------------------------------------------------------------------------------
+
+public class Test 
+{
+       public static void main(String a[])
+       {
+    	   Student st1=new Student();
+    	   st1.showStud();
+    	   
+    	   Student st2=new Student(9,"atul");
+    	   st2.showStud();
+       }
+}
+
+output:
+
+in student default constructor....
+Roll No:0
+Name:null
+in student para constructor....
+Roll No:9
+Name:atul
+
+-----------------------------------------------------------------------------------------
+
+public class Test 
+{
+       public static void main(String a[])
+       {
+    	   Student st1=new Student();
+    	//   st1.showStud();
+    	   int r=st1.getRollno();
+    	   System.out.println(r);
+    	   String n=st1.getName();
+    	   System.out.println(n);
+    	   Student st2=new Student(9,"atul");
+    	 //  st2.showStud();
+    	   System.out.println(st2.getRollno());
+    	   System.out.println(st2.getName());
+       }
+}
+
+output:
+
+in student default constructor....
+0
+null
+in student para constructor....
+9
+atul
+
+======================================================
+
+public class Emp {
+        private int Empid;
+        private String EmpName;
+        private int Salary;
+        
+        public Emp()
+        {
+        	System.out.println("in default constructor");
+        }
+        public Emp(int id, String nm, int sal)
+        {
+        	System.out.println("in para constructor");
+        	Empid=id;
+        	EmpName=nm;
+        	Salary=sal;
+        }
+		
+        int getEmpid() {
+			return Empid;
+		}
+		
+		String getEmpName() {
+			return EmpName;
+		}
+		
+		int getSalary() {
+			return Salary;
+		}
+		
+		
+        public void showEmp()
+        {
+        	System.out.println(Empid+"     "+EmpName+"      "+Salary);
+        }
+}
+
+--------------------------------------------------------------------------------------
+
+public class Emp_Test 
+{
+        public static void main(String[] args) 
+        {
+			Emp e1=new Emp();
+			e1.showEmp();
+			
+			Emp e2=new Emp(11,"Atul",23444);
+			System.out.println(e2.getEmpid());
+			System.out.println(e2.getEmpName());
+			System.out.println(e2.getSalary());	
+		}
+}
+
+output:
+
+in default constructor
+0     null      0
+in para constructor
+11
+Atul
+23444
+
+==========================================================
+
+public class Emp {
+        private int Empid;
+        private String EmpName;
+        private int Salary;
+        
+        public Emp()
+        {
+        	System.out.println("in default constructor");
+        }
+        public Emp(int id, String nm, int sal)
+        {
+        	System.out.println("in para constructor");
+        	Empid=id;
+        	EmpName=nm;
+        	Salary=sal;
+        }
+		
+        int getEmpid() {
+			return Empid;
+		}
+		
+		String getEmpName() {
+			return EmpName;
+		}
+		
+		int getSalary() {
+			return Salary;
+		}
+		
+		
+        public void showEmp()
+        {
+        	System.out.println(Empid+"     "+EmpName+"      "+Salary);
+        }
+}
+
+--------------------------------------------------------------------------------------
+
+public class Emp_Test 
+{
+        public static void main(String[] args) 
+        {
+			Emp e1=new Emp();
+			e1.showEmp();
+			
+			Emp e2=new Emp(11,"Atul",23444);
+			System.out.println(e2.getEmpid());
+			System.out.println(e2.getEmpName());
+			System.out.println(e2.getSalary());	
+		}
+}
+
+output:
+
+in default constructor
+0     null      0
+in para constructor
+11
+Atul
+23444
+==========================================================
+
+Static-->
+    -data member
+    -method
+    -block
+private static int count;
+
+>>>default value of count is 0.
+static methods cannot access nonstatic data member.
+nonstatic methods can access static data member.
+
+====================================================
+
+public class Customer 
+{
+       private String custId;
+       private String custName;
+       private int custMobile;
+	   private static int count;
+	   
+	   static
+	   {
+		   System.out.println("in static block....");
+		   count=10;
+	   }
+	   
+       public Customer() 
+       {
+    	   count++;
+    	   System.out.println("in default constructor....");
+	   }
+	
+       public Customer(String custId, String custName, int custMobile) 
+       {
+    	   System.out.println("in para constructor....");
+    	   count++;
+		   this.custId = custId;
+		   this.custName = custName;
+		   this.custMobile = custMobile;
+	   }
+       
+       //static methods cannot access nonstatic data member
+       public static void showCount()
+       {
+    	   System.out.println("number of objects created:"+count); 
+    	   
+       }
+       
+       //nonstatic methods can access static data member
+       public void showCustDetails()
+       {
+    	   System.out.println("number of objects created:"+count);
+    	   System.out.println(this.custId);
+    	   System.out.println(this.custName);
+    	   System.out.println(this.custMobile);
+       }  
+       
+}
+
+--------------------------------------------------------------------------------------
+
+public class TestCust 
+{
+       public static void main(String[] args) 
+       {
+		Customer c1=new Customer("C101","Atul",982124521);
+		Customer c2=new Customer("C102","Raj",982122511);
+		Customer c3=new Customer("C103","Vishal",992144562);
+		Customer c4=new Customer("C104","Shubham",728726542);
+		
+		Customer.showCount();
+	   }
+}
+
+output:
+
+in static block....
+in para constructor....
+in para constructor....
+in para constructor....
+in para constructor....
+number of objects created:14
+
+===========================================================
+
+
+
+
+
+
+
+

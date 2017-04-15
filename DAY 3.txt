@@ -1,0 +1,518 @@
+=========================================================
+Array:
+     int a[]=new int [5];
+
+ex. Emp e[]=new Emp[5];
+
+stack--stores local variables.
+
+variables-->
+    1) instance --all non static var
+    2) class ---static var
+    3) local
+
+DOC>>
+http://10.10.3.160/
+======================================================
+
+
+
+public class Emp {
+        private int Empid;
+        private String EmpName;
+        private int Salary;
+        
+        public Emp()
+        {
+        	System.out.println("in default constructor");
+        }
+        public Emp(int id, String nm, int sal)
+        {
+        	System.out.println("in para constructor");
+        	Empid=id;
+        	EmpName=nm;
+        	Salary=sal;
+        }
+		
+        int getEmpid() {
+			return Empid;
+		}
+		
+		String getEmpName() {
+			return EmpName;
+		}
+		
+		int getSalary() {
+			return Salary;
+		}
+		
+		
+        public void setEmpid(int empid) {
+			Empid = empid;
+		}
+		public void setEmpName(String empName) {
+			EmpName = empName;
+		}
+		public void setSalary(int salary) {
+			Salary = salary;
+		}
+		
+		public void showEmp()
+        {
+        	System.out.println(Empid+"     "+EmpName+"      "+Salary);
+        }
+}
+
+-------------------------------------------------------------------------------------
+
+import java.util.Scanner;
+
+
+public class TestEmp 
+{
+       public static void main(String[] args) 
+       {
+    	   Scanner s=new Scanner(System.in);  
+    	   
+	          System.out.println("how many employees are there: ");
+	          int num_of_emp=s.nextInt();
+	          Emp earr[]=new Emp[num_of_emp];
+	          
+	          for (int i = 0; i < earr.length; i++) 
+	          {
+	        	 earr[i]=new Emp();
+	        	 System.out.println("enter empid:");
+				 earr[i].setEmpid(s.nextInt());
+				 System.out.println("enter emp name:");
+				 earr[i].setEmpName(s.next());
+				 System.out.println("enter emp salary:");
+				 earr[i].setSalary(s.nextInt());
+				 
+				 
+	         }
+	          
+	          for (int i = 0; i < earr.length; i++)
+	          {
+	        	//System.out.println(earr[i].getEmpid()+"     "+earr[i].getEmpName()+"     "+earr[i].getSalary());
+	        	  earr[i].showEmp();
+	        	  
+	          }
+	          
+       }
+}
+
+
+output:
+
+how many employees are there: 
+1
+in default constructor
+enter empid:
+1
+enter emp name:
+atul
+enter emp salary:
+23455
+1     atul      23455
+
+===========================================================================
+
+OBJ--predefined class in java
+
+=====================================================
+
+import java.util.Date;
+
+
+public class Associate 
+{
+       private int id;
+       private String name;
+       private Date joinDate;
+	
+       public Associate(int id, String name, Date joinDate) 
+       {
+		    super();
+		    this.id = id;
+		    this.name = name;
+		    this.joinDate = joinDate;
+	   }
+
+	   public int getId() 
+	   {
+		  return id;
+	   }
+
+	   public String getName() 
+	   {
+		  return name;
+	   }
+
+	   public Date getJoinDate() 
+	   {
+		  return joinDate;
+	   }
+	 
+	   
+	   
+	/*@Override
+	public String toString() 
+	{
+		return "Associate [id=" + id + ", name=" + name + ", joinDate="
+				+ joinDate + "]";
+	}*/
+
+	@Override
+	public String toString() 
+	{
+		System.out.println("in my toString....");
+		return this.id+"  "+this.name+"    "+this.joinDate;
+	}
+
+	public void showData()
+	   {
+		   System.out.println("id:"+this.id);
+		   System.out.println("name:"+this.name);
+		   System.out.println("joinDate:"+this.joinDate);
+	   }
+              
+}
+
+---------------------------------------------------------------------------------------
+
+import java.util.Date;
+
+public class Test_Inheritance 
+{
+       public static void main(String[] args) 
+       {
+    	      Date d=new Date((2017-1900),4,14);
+		      Associate a=new Associate(101, "Atul", d);
+		     // a.showData();
+		     // System.out.println(a);
+		      
+		      /*char ch='b';
+		      System.out.println(ch);
+		      
+		      int val=9;
+		      System.out.println(val);
+		      
+		      String name="vishal";
+		      System.out.println(name);*/
+		      
+		      ELITian e=new ELITian(23,"Rohit",d,2045,"TUS-05");
+		      System.out.println(e);
+	   }
+}
+
+-----------------------------------------------------------------------------------------
+
+import java.util.Date;
+
+
+public class ELITian extends Associate 
+{
+       private int groupId;
+       private String mappedIBU;
+	
+       public ELITian(int id, String name, Date joinDate,int gId,String IBU) 
+	   {
+		      super(id, name, joinDate);
+		      this.groupId=gId;
+		      this.mappedIBU=IBU;
+	   }
+
+	@Override
+	public String toString() 
+	{
+		return super.toString()+"     "+this.groupId+"   "+this.mappedIBU;
+	}
+       
+}
+
+
+output:
+
+in my toString....
+23  Rohit    Sun May 14 00:00:00 IST 2017     2045   TUS-05
+
+----------------------------------------------------------------------------------------
+
+import java.util.Date;
+
+
+public class ELITian extends Associate 
+{
+       private int groupId;
+       private String mappedIBU;
+	
+       public ELITian(int id, String name, Date joinDate,int gId,String IBU) 
+	   {
+		      super(id, name, joinDate);
+		      this.groupId=gId;
+		      this.mappedIBU=IBU;
+	   }
+
+	public int getGroupId() {
+		return groupId;
+	}
+
+	public String getMappedIBU() {
+		return mappedIBU;
+	}
+
+	@Override
+	public String toString() 
+	{
+		return super.toString()+"   "+getGroupId()+"    "+getMappedIBU();
+	}
+
+	/*@Override
+	public String toString() 
+	{
+		return super.toString()+"     "+this.groupId+"   "+this.mappedIBU;
+	}*/
+       
+       
+}
+
+
+output:
+
+in my toString....
+23  Rohit    Sun May 14 00:00:00 IST 2017   2045    TUS-05
+
+=========================================================
+
+Final>>>
+1) var -- which can't be modified
+2) class --- can't be extended
+3) method --can't be over-ridden
+
+====================================================================
+
+Abstract--->>
+1) class
+2) method--only declaration
+
+=====================================================
+
+public abstract class Person 
+{
+       String fname;
+       String lname;
+       String address;
+	
+       public Person(String fname, String lname, String address) 
+       {
+			super();
+			this.fname = fname;
+			this.lname = lname;
+			this.address = address;
+	   }
+
+       public String getFname() 
+       {
+		return fname;
+	   }
+
+       
+	public String getLname() 
+	{
+		return lname;
+	}
+
+
+	public String getAddress() 
+	{
+		return address;
+	}
+	
+	@Override
+	   public String toString() 
+       {
+ 	   return "Person [fname=" + fname + ", lname=" + lname + ", address="
+				+ address + "]";
+	   }
+
+
+	public abstract void showDetails();
+       
+}
+
+---------------------------------------------------------------------------------------
+
+public class Trainer extends Person 
+{
+    private int num_of_skills;
+    private int expInYrs;
+    
+	public Trainer(String fname, String lname, String address,int skill,int exp)
+	{
+		super(fname, lname, address);	
+		this.num_of_skills=skill;
+		this.expInYrs=exp;
+	}
+
+	@Override
+	public void showDetails() 
+	{
+		System.out.println(this.getFname());
+		System.out.println(this.getLname());
+		System.out.println(this.getAddress());
+		System.out.println(this.num_of_skills);
+		System.out.println(this.expInYrs);
+	}
+       
+}
+
+---------------------------------------------------------------------------------------
+
+import java.util.Scanner;
+
+
+public class TLS 
+{
+       public static void main(String[] args) 
+       {
+    	      Scanner sc=new Scanner(System.in);
+		      Trainer t=new Trainer(sc.next(),sc.next(),sc.next(),sc.nextInt(),sc.nextInt());
+		      t.showDetails();
+	   }
+}
+
+
+output:
+
+atul
+khodade
+pune
+2
+10
+atul
+khodade
+pune
+2
+10
+
+=============================================================
+
+Upcasting----    person p=new SM();
+
+-------------------------------------------------------------------------------------
+
+import java.util.Scanner;
+
+
+public class TLS 
+{
+       public static void main(String[] args) 
+       {
+    	      Scanner sc=new Scanner(System.in);
+    	      //up-casting
+		      Person t=new Trainer(sc.next(),sc.next(),sc.next(),sc.nextInt(),sc.nextInt());
+		      t.showDetails();
+	   }
+}
+
+===================================================
+
+
+public class Trainer extends Person 
+{
+    private int num_of_skills;
+    private int expInYrs;
+    
+	public Trainer(String fname, String lname, String address,int skill,int exp)
+	{
+		super(fname, lname, address);	
+		this.num_of_skills=skill;
+		this.expInYrs=exp;
+	}
+
+	@Override
+	public void showDetails() 
+	{
+		System.out.println(this.getFname());
+		System.out.println(this.getLname());
+		System.out.println(this.getAddress());
+		System.out.println(this.num_of_skills);
+		System.out.println(this.expInYrs);
+	}
+	
+	public void TrainerKaMethod()
+	{
+		
+	}
+	
+       
+}
+
+
+-----------------------------------------------------------------------------------
+
+import java.util.Scanner;
+
+
+public class TLS 
+{
+       public static void main(String[] args) 
+       {
+    	      Scanner sc=new Scanner(System.in);
+    	      //up-casting
+		      Person p=new Trainer(sc.next(),sc.next(),sc.next(),sc.nextInt(),sc.nextInt());
+		      p.showDetails();
+		      
+		      //down-casting
+		      Trainer t=(Trainer) p;
+		      t.TrainerKaMethod();
+	   }
+}
+
+
+=======================================================
+
+
+METHOD OVERLOADING--->>
+
+public class Maths
+{
+	//method over-loading
+	int add(int n1,int n2)
+	{
+		return(n1+n2);
+	}
+	
+	double add(double n1,int n2)
+	{
+		return(n1+n2);
+	}
+	
+	float add(int n1,float n2)
+	{
+		return(n1+n2);
+	}
+	
+	public static void main(String[] args) 
+	{
+		Maths m=new Maths();
+		System.out.println(m.add(10, 10));
+		System.out.println(m.add(12, 3.4f));
+		System.out.println(m.add(32.89,5));
+	}
+}
+
+OUTPUT:
+
+20
+15.4
+37.89
+
+=======================================================
+
+Polymorphism--->>
+1) compile time--static binding--early binding (method overloading)
+2) Run time--dynamic binding--late binding (method over-riding)
+
+binding---linking method call to its code
+
