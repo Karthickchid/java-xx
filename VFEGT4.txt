@@ -1,0 +1,90 @@
+import java.util.Date;
+
+
+public abstract class Medicine {
+     private int price;
+     private String ExpDate;
+     
+     public abstract void getLabel();
+
+	public Medicine(int price, String
+			expDate) {
+		super();
+		this.price = price;
+		ExpDate = expDate;
+	} 
+		
+	
+     public void  getDetails() {
+		System.out.println(this.price);
+		System.out.println(this.ExpDate);
+	}
+     
+     
+     
+}
+
+
+
+
+
+
+
+
+
+
+import java.util.Date;
+
+
+public class Tablet extends Medicine {
+
+	public Tablet(int price, String expDate) {
+		super(price, expDate);
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public void getLabel() {
+		// TODO Auto-generated method stub
+		System.out.println("Store in cool dry place");
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+public class Ointment extends Medicine {
+
+	public Ointment(int price, String expDate) {
+		super(price, expDate);
+		
+	}
+
+	@Override
+	public void getLabel() {
+		// TODO Auto-generated method stub
+		System.out.println("for external use only");
+	}
+
+}
+
+
+
+
+public class TestMedicine {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+      // Tablet t=new Tablet(255, "12-11-2015");
+		Ointment o=new Ointment(125, "12-12-1087");
+       o.getLabel();
+	}
+
+}
