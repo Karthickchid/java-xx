@@ -1,0 +1,87 @@
+package com.shape;
+
+import java.util.Scanner;
+
+public class Square implements Polygon {
+private float side;
+	@Override
+	public void calcArea() {
+		System.out.println("Enter the side");
+		Scanner sc=new Scanner(System.in);
+		this.side=sc.nextFloat();
+		System.out.println(this.side*this.side);
+	}
+
+	@Override
+	public void calcPeri() {
+		System.out.println("enter the side");
+	Scanner s=new Scanner(System.in);
+		this.side=s.nextFloat();
+		System.out.println(this.side*4);
+		
+	}
+
+}
+
+
+
+package com.shape;
+
+public interface Polygon {
+	public void calcArea( );	
+	public void calcPeri( ); 
+
+}
+
+
+
+package com.shape;
+
+import java.util.Scanner;
+
+public class Rectangle implements Polygon{
+		private float	length;
+	private float 	breadth;
+
+	@Override
+	public void calcArea() {
+		System.out.println("Enter the length and breath");
+		Scanner sc=new Scanner(System.in);
+		this.length=sc.nextFloat();
+		this.breadth=sc.nextFloat();
+		System.out.println(this.length*this.breadth);
+		
+	}
+
+	@Override
+	public void calcPeri() {
+		System.out.println("Enter the length and breath");
+		Scanner sc=new Scanner(System.in);
+		this.length=sc.nextFloat();
+		this.breadth=sc.nextFloat();
+		System.out.println(2*(this.length+this.breadth));
+		
+	}
+
+}
+
+
+
+package com.test;
+import com.shape.*;
+
+
+public class Check 
+{
+	public static void main(String[] args) 
+	{
+		//Square s=new Square();
+		//s.calcArea();
+		//s.calcPeri();
+		Rectangle r=new Rectangle();
+		r.calcArea();
+		r.calcPeri();
+	}
+	
+
+}
