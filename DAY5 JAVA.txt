@@ -1,0 +1,392 @@
+				EXCEPTION JAVA DAY5
+
+1)
+package ExceptionHandling;
+
+import java.util.Scanner;
+
+public class Demo1 {
+	
+	public static void main(String[] args) {
+		
+		Scanner sc=new Scanner(System.in);
+		System.out.println("ENTER THE Numerator");
+		int num=sc.nextInt();
+		System.out.println("ENTER THE Denominator");
+		int den=sc.nextInt();
+		try
+		{
+		float ans=num/den;
+		System.out.println("Ans is: " +ans);
+	    }
+		catch(ArithmeticException a)
+		{
+			System.out.println(" Please enter non zero value");
+		}
+
+}
+}
+
+OP
+ENTER THE Numerator
+25
+ENTER THE Denominator
+0
+ Please enter non zero value
+****************************************************************
+package ExceptionHandling;
+
+import java.util.Scanner;
+
+public class Demo1 {
+	
+	public static void main(String[] args) {
+		
+		Scanner sc=new Scanner(System.in);
+		System.out.println("ENTER THE Numerator");
+		int num=sc.nextInt();
+		System.out.println("ENTER THE Denominator");
+		int den=sc.nextInt();
+		try
+		{
+		float ans=num/den;
+		System.out.println("Ans is: " +ans);
+	    }
+		finally
+		{
+			System.out.println(" Please enter non zero value");
+		}
+
+}
+}
+******************************************************************************************
+package ExceptionHandling;
+
+import java.util.Scanner;
+
+public class Demo1 {
+	
+	public static void main(String[] args) {
+		
+		Scanner sc=new Scanner(System.in);
+		int arr[]=new int[4];
+		arr[0]=1; arr[1]=2; arr[2]=3; arr[3]=4;
+		System.out.println("For array:");
+		System.out.println("ENTER THE Index no");
+		int idx=sc.nextInt();
+		System.out.println("Num at entered index is  " +arr[idx]);
+		
+		String str="Diwakar";
+		System.out.println("ENTER THE Index no");
+		idx=sc.nextInt();
+		System.out.println("Character at entered index is  " +str.charAt(idx));
+}
+}
+
+	OP
+For array:
+ENTER THE Index no
+2
+Num at entered index is  3
+ENTER THE Index no
+5
+Character at entered index is  a
+
+***************************************************************
+package ExceptionHandling;
+import java.util.Scanner;
+public class Demo1 {
+		public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int arr[]=new int[4];
+		arr[0]=1; arr[1]=2; arr[2]=3; arr[3]=4;
+		try
+		{
+		System.out.println("For array:");
+		System.out.println("ENTER THE Index no");
+		int idx=sc.nextInt();
+		System.out.println("Num at entered index is  " +arr[idx]);
+		}
+		catch(ArrayIndexOutOfBoundsException a1)
+		{
+			System.out.println("enter val bet 0-3");
+		}
+		 try
+		 {
+		String str="Diwakar";
+		System.out.println("ENTER THE Index no");
+		int idx=sc.nextInt();
+		System.out.println("Character at entered index is  " +str.charAt(idx));
+		}
+		 catch(StringIndexOutOfBoundsException s)
+		 {
+			 System.out.println("for string enter val bet 0-6");
+		 }
+		 }
+}
+
+OP
+For array:
+ENTER THE Index no
+5
+enter val bet 0-3
+ENTER THE Index no
+9
+for string enter val bet 0-6
+***********************************************************************************************
+ONE TRY MULTIPLE CATCH BLOCKS
+
+package ExceptionHandling;
+import java.util.Scanner;
+public class Demo1 {
+		public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int arr[]=new int[4];
+		arr[0]=1; arr[1]=2; arr[2]=3; arr[3]=4;
+		try
+		{
+		System.out.println("For array:");
+		System.out.println("ENTER THE Index no");
+		int idx=sc.nextInt();
+		System.out.println("Num at entered index is  " +arr[idx]);
+		String str="Diwakar";
+		System.out.println("ENTER THE Index no");
+		idx=sc.nextInt();
+		System.out.println("Character at entered index is  " +str.charAt(idx));
+		}
+		 catch(ArrayIndexOutOfBoundsException a1)
+			{
+				System.out.println("enter val bet 0-3");
+			}
+		 catch(StringIndexOutOfBoundsException s)
+		 {
+			 System.out.println("for string enter val bet 0-6");
+		 }
+		 }
+}
+
+**********************************************************************************************
+package ExceptionHandling;
+import java.util.Scanner;
+public class Demo1 {
+		public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int arr[]=new int[4];
+		arr[0]=1; arr[1]=2; arr[2]=3; arr[3]=4;
+		try
+		{
+		System.out.println("For array:");
+		System.out.println("ENTER THE Index no");
+		int idx=sc.nextInt();
+		System.out.println("Num at entered index is  " +arr[idx]);
+		String str="Diwakar";
+		System.out.println("ENTER THE Index no");
+		idx=sc.nextInt();
+		System.out.println("Character at entered index is  " +str.charAt(idx));
+		}
+		 catch(ArrayIndexOutOfBoundsException a1)
+			{
+				System.out.println("enter val bet 0-3");
+			}
+		 catch(StringIndexOutOfBoundsException s)
+		 {
+			 System.out.println("for string enter val bet 0-6");
+		 }
+		catch(Exception e)
+		{
+			System.out.println("others exception");
+		}
+		 }
+}
+
+OP
+For array:
+ENTER THE Index no
+ffgerfgerg
+others exception
+********************************************************************************************************
+ USER DEFINED EXCEPTION
+
+package ExceptionHandling;
+
+public class Account {
+	private String accID; /// Must start with ACC & accid length must be 6
+	private String ACCtype;
+	public String getAccID() {
+		return accID;
+	}
+	
+	public Account(String accID, String aCCtype) throws AccountException {
+		if(accID.startsWith("ACC")&&accID.length()==6)
+		this.accID = accID;
+		else
+			throw new AccountException("Account id is not valid ");
+		ACCtype = aCCtype;
+	}
+
+	public void setAccID(String accID) throws AccountException {
+		if(accID.startsWith("ACC")&&accID.length()==6)
+		this.accID = accID;
+		else
+			throw new AccountException("Account id is not valid ");
+	}
+	public String getACCtype() {
+		return ACCtype;
+	}
+	public void setACCtype(String aCCtype) {
+		ACCtype = aCCtype;
+	}
+	@Override
+	public String toString() {
+		return "Account [accID=" + accID + ", ACCtype=" + ACCtype + "]";
+	}
+}
+
+package ExceptionHandling;
+
+public class AccountException extends Exception {
+	
+	//3. para constr taking string argument
+	public AccountException(String message) {
+		super(message);
+		}
+	//1. toString
+	//2. default constr
+}
+
+package ExceptionHandling;
+import java.util.Scanner;
+public class Bank {
+public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		
+		// for SETTER
+		/*Account a=new Account();
+		try {
+			a.setAccID(s.next());
+		} catch (AccountException e) {
+			//e.printStackTrace();
+	    System.out.println(e.getMessage());
+		}
+		a.setACCtype(s.next());
+		System.out.println(a);*/
+	
+		// Constructor	
+		try {
+			Account a=new Account(s.next(),s.next());
+			System.out.println(a);
+		} catch (AccountException e) {
+			e.printStackTrace();
+		}
+			}
+}
+
+OP
+acc120
+deposit
+ExceptionHandling.AccountException: Account id is not valid 
+	at ExceptionHandling.Account.<init>(Account.java:14)
+	at ExceptionHandling.Bank.main(Bank.java:20)
+
+*****************************************************************************************************************************
+
+package ExceptionHandling;
+public class Doctor  {
+		private String degree;
+		private String name;
+		public String getDegree() {
+			return degree;
+		}
+		public void setDegree(String degree) throws DoctorException {
+			if(degree.length()>0||degree.isEmpty()||degree.equals(null))
+			throw new DoctorException();
+			else
+				this.degree = degree;
+		}
+		public String getName() {
+			return name;
+		}
+		public void setName(String name) {
+			this.name = name;
+		}
+		@Override
+		public String toString() {
+			return "Doctor [degree=" + degree + ", name=" + name + "]";
+		}	
+		}
+---------
+OR
+-------------
+package ExceptionHandling;
+
+import java.util.Scanner;
+
+public class Doctor  {
+		private String degree;
+		private String name;
+		
+		public void getData()
+		{
+			Scanner sc=new Scanner(System.in);
+			System.out.println("enter degree");
+			this.degree=sc.next();
+			System.out.println("enter name");
+			this.name=sc.next();
+		}
+		
+		
+		@Override
+		public String toString() {
+			return "Doctor [degree=" + degree + ", name=" + name + "]";
+		}
+
+
+		public String getDegree() {
+			return degree;
+		}
+		public void setDegree(String degree) throws DoctorException {
+			if(degree.length()>0||degree.isEmpty()||degree.equals(null))
+			throw new DoctorException();
+			else
+				this.degree = degree;
+		}
+		public String getName() {
+			return name;
+		}
+		public void setName(String name) {
+			this.name = name;
+		}
+		public void putData(){
+			System.out.println(this.degree+ " "+this.name);
+		}
+		}
+------------
+package ExceptionHandling;
+public class DoctorException extends Exception {
+//2.default constr
+public DoctorException(){
+	System.out.println("in doc default constr");
+
+}
+}
+
+
+public class clinic {
+public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		Doctor d=new Doctor();
+		try
+		{
+		System.out.println("enter doctor degree");
+		String deg=sc.useDelimiter("\n").next();
+		d.setDegree(deg);
+		System.out.println("enter doctor name");
+		String nm=sc.next();
+		d.setDegree(nm);
+       } catch (DoctorException e){
+    	  System.out.println(e);
+       }
+	}
+}
+
+**************************************************************************************************************************************

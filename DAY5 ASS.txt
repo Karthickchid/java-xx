@@ -1,0 +1,39 @@
+package ExceptionHandling;
+import java.util.Scanner;
+public class Array {
+		public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int arr[]=new int[10];
+		arr[0]=1; arr[1]=2; arr[2]=3; arr[3]=4; arr[4]=21; arr[5]=22; arr[6]=34;
+		arr[7]=31; arr[8]=56; arr[9]=89;
+		try
+		{
+		System.out.println("For array:");
+		System.out.println("ENTER THE Index no");
+		int idx=sc.nextInt();
+		System.out.println("Num at entered index is  " +arr[idx]);
+        }
+		catch(ArrayIndexOutOfBoundsException a1)
+		{
+			System.out.println("enter val bet index 0-9");
+		}
+		catch(Exception e)
+		{
+			System.out.println("others exception");
+		}
+		}
+        }
+
+OP
+1)
+For array:
+ENTER THE Index no
+9
+Num at entered index is  89
+
+2)
+For array:
+ENTER THE Index no
+10
+enter val bet index 0-9
+*************************************************************************************************
