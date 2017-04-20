@@ -1,0 +1,77 @@
+
+1.
+package CollectionDemo;
+import java.util.ArrayList;
+import java.util.Iterator;
+public class ArrayDemo {
+public static void main(String[] args) {
+	ArrayList a=new ArrayList();
+	a.add(10);
+	a.add('a');
+	a.add(true);
+	a.add("good");
+	a.add(123.55);
+	a.add(new Emp(1,"vishwa"));
+	//1.
+	System.out.println(a);
+	//2.
+	for (int i=0; i<a.size(); i++){
+	System.out.println(a.get(i));
+}
+	//3.
+	Iterator i=a.iterator();
+	while(i.hasNext())
+	{
+		System.out.println(i.next());
+	}
+}
+}
+
+OP
+[10, a, true, good, 123.55, Emp [rollno=1, name=vishwa]]
+10
+a
+true
+good
+123.55
+Emp [rollno=1, name=vishwa]
+10
+a
+true
+good
+123.55
+Emp [rollno=1, name=vishwa]
+*****************************************************
+2.
+package CollectionDemo;
+
+import java.util.HashSet;
+
+public class HashSetDemo {
+
+	public static void main(String[] args) {
+		HashSet hs=new HashSet();
+		hs.add(true);
+		hs.add("good");
+		hs.add(123.55);
+		hs.add(new Emp(1,"vishwa"));
+System.out.println(hs);
+	}
+
+}
+********************************************************************
+3.
+package CollectionDemo;
+
+import java.util.Vector;
+
+public class VectorDemo {
+public static void main(String[] args) {
+	Vector<Integer> v=new Vector<Integer>();
+	v.add(10);
+	v.add(23);
+	v.add(8798);
+	v.add(564);
+}
+}
+******************************************************************
